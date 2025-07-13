@@ -1,0 +1,131 @@
+.card {
+  border-radius: var(--borders-radius-medium);
+  background-color: var(--colors-surface-primary);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: 
+    transform var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-easeOut),
+    box-shadow var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-easeOut);
+  width: 100%;
+  position: relative;
+  box-sizing: border-box; // Added to prevent overflow with width: 100% and borders/padding
+}
+
+// Variant styles
+.variantDefault {
+  box-shadow: var(--effects-shadows-small);
+  border: 1px solid var(--borders-default-color);
+}
+
+.variantElevated {
+  box-shadow: var(--effects-shadows-medium);
+  border: none;
+}
+
+.variantOutlined {
+  box-shadow: none;
+  border: 1px solid var(--borders-default-color);
+}
+
+.variantFlat {
+  box-shadow: none;
+  border: none;
+  background-color: var(--colors-surface-secondary);
+}
+
+// Interactive state
+.interactive {
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-4px);
+    
+    &.variantDefault {
+      box-shadow: var(--effects-shadows-medium);
+    }
+    
+    &.variantElevated {
+      box-shadow: var(--effects-shadows-large);
+    }
+    
+    &.variantOutlined {
+      box-shadow: var(--effects-shadows-xs);
+    }
+    
+    &.variantFlat {
+      background-color: var(--colors-surface-tertiary);
+    }
+  }
+  
+  &:active {
+    transform: translateY(-2px);
+  }
+}
+
+// Image
+.imageContainer {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0; // Prevent extra space below image
+}
+
+.image {
+  width: 100%;
+  height: auto; // Maintain aspect ratio
+  object-fit: cover;
+  transition: transform var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-easeOut);
+  
+  .interactive:hover & { // This selector won't work as .interactive is on the parent .card
+    // This hover effect needs to be on .card.interactive:hover .image
+    // or applied directly to .image when .card.interactive:hover
+    // Let's correct this logic.
+  }
+}
+
+// Corrected hover effect for image within an interactive card
+.card.interactive:hover .image {
+  transform: scale(1.05);
+}
+
+
+// Header
+.header {
+  padding: var(--spacing-default) var(--spacing-default) var(--spacing-small);
+  border-bottom: 1px solid var(--colors-divider);
+  box-sizing: border-box; // Ensure padding doesn't expand header beyond card width
+}
+
+.title {
+  margin: 0;
+  font-size: var(--typography-sizes-heading-h4);
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-emphasis);
+}
+
+// Content
+.content {
+  padding: var(--spacing-default);
+  flex: 1;
+  color: var(--colors-text-primary);
+  box-sizing: border-box; // Ensure padding doesn't expand content beyond card width
+}
+
+// Footer
+.footer {
+  padding: var(--spacing-small) var(--spacing-default);
+  border-top: 1px solid var(--colors-divider);
+  background-color: var(--colors-surface-secondary);
+  box-sizing: border-box; // Ensure padding doesn't expand footer beyond card width
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+  .card {
+    border-radius: var(--borders-radius-small);
+  }
+  
+  .header, .content, .footer {
+    padding: var(--spacing-small);
+  }
+}

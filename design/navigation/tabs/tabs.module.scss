@@ -1,0 +1,250 @@
+.tabsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  
+  &.positionLeft {
+    flex-direction: row;
+    
+    .tabList {
+      flex-direction: column;
+      border-right: 1px solid var(--colors-divider);
+      border-bottom: none;
+      min-width: 200px;
+    }
+    
+    .tabPanels {
+      flex: 1;
+      padding-left: var(--spacing-medium);
+    }
+  }
+  
+  &.positionRight {
+    flex-direction: row-reverse;
+    
+    .tabList {
+      flex-direction: column;
+      border-left: 1px solid var(--colors-divider);
+      border-bottom: none;
+      min-width: 200px;
+    }
+    
+    .tabPanels {
+      flex: 1;
+      padding-right: var(--spacing-medium);
+    }
+  }
+  
+  &.positionBottom {
+    flex-direction: column-reverse;
+    
+    .tabList {
+      border-top: 1px solid var(--colors-divider);
+      border-bottom: none;
+    }
+    
+    .tabPanels {
+      padding-bottom: var(--spacing-medium);
+    }
+  }
+}
+
+.tabList {
+  display: flex;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border-bottom: 1px solid var(--colors-divider);
+  
+  &.variantFilled {
+    .tabItem {
+      margin-right: var(--spacing-xxs);
+      border-radius: var(--borders-radius-small) var(--borders-radius-small) 0 0;
+      
+      &.active {
+        background-color: var(--colors-primary-default);
+        color: var(--colors-text-inverse) !important;
+      }
+    }
+    
+    .activeIndicator {
+      display: none;
+    }
+  }
+  
+  &.variantOutlined {
+    border-bottom: none;
+    
+    .tabItem {
+      border: 1px solid var(--colors-divider);
+      border-bottom: none;
+      border-radius: var(--borders-radius-small) var(--borders-radius-small) 0 0;
+      margin-right: var(--spacing-xxs);
+      
+      &.active {
+        border-color: var(--colors-primary-default);
+        border-bottom: 1px solid var(--colors-surface-primary); /* Ensure content area blends */
+        margin-bottom: -1px; /* Overlap to hide panel top border */
+      }
+    }
+    
+    .activeIndicator {
+      display: none;
+    }
+  }
+  
+  &.variantUnderlined {
+    // .tabItem {
+    //   &.active {
+    //     color: var(--colors-primary-default); // Already handled by general .active
+    //   }
+    // }
+    
+    .activeIndicator {
+      background-color: var(--colors-primary-default);
+      position: absolute;
+      bottom: -1px; /* Align with the border-bottom of tabList */
+      height: 2px;
+      transition: all 0.3s ease;
+    }
+  }
+  
+  &.fullWidth {
+    .tabItem {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+}
+
+.tabItem {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-small) var(--spacing-default);
+  color: var(--colors-text-secondary);
+  cursor: var(--interactions-cursor-pointer);
+  position: relative;
+  user-select: none;
+  transition: all var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-easeOut);
+  box-sizing: border-box;
+  
+  &.active {
+    color: var(--colors-text-primary);
+    font-weight: var(--typography-font-weight-medium);
+  }
+  
+  &:hover:not(.active) {
+    color: var(--colors-primary-hover);
+    background-color: var(--colors-surface-secondary);
+  }
+  
+  &:focus {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--borders-focus-color);
+    outline-offset: var(--borders-focus-offset);
+  }
+}
+
+.tabLink {
+  color: inherit !important;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.tabContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabIcon {
+  margin-right: var(--spacing-xxs);
+  display: flex;
+  align-items: center;
+}
+
+.tabLabel {
+  font-size: var(--typography-sizes-body-default);
+}
+
+.tabBadge {
+  margin-left: var(--spacing-xxs);
+  font-size: var(--typography-sizes-caption-small);
+  padding: 2px 6px;
+  border-radius: var(--borders-radius-small);
+  background-color: var(--colors-status-neutral-default);
+  color: var(--colors-text-inverse);
+}
+
+.tabPanels {
+  flex: 1;
+  padding-top: var(--spacing-medium);
+}
+
+.tabPanel {
+  display: none;
+  
+  &.activePanel {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+  .tabList {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+    
+    &::-webkit-scrollbar {
+      height: 3px; /* Make scrollbar less obtrusive */
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: var(--colors-surface-tertiary); /* Light track */
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--colors-primary-default); /* Themed thumb */
+      border-radius: var(--borders-radius-medium);
+    }
+  }
+  
+  /* For vertical tabs, stack them horizontally on small screens */
+  .tabsContainer.positionLeft,
+  .tabsContainer.positionRight {
+    flex-direction: column;
+    
+    .tabList {
+      flex-direction: row; /* Horizontal tabs */
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid var(--colors-divider); /* Standard bottom border */
+      min-width: auto; /* Allow shrinking */
+    }
+    
+    .tabPanels {
+      padding-left: 0; /* Remove side padding */
+      padding-right: 0;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+---
+description: A versatile and accessible button component with primary, secondary, and tertiary styles.
+labels: ['button', 'form', 'interaction']
+---
+
+## Button Component
+
+The `Button` component offers a flexible way to create interactive buttons with different styles, handling both standard button actions and navigation links.
+
+## Usage
+
+### Primary Button
+
+A primary button is used for the main action on a page.
+
+```jsx
+<Button appearance="primary" onClick={() => alert('Primary Button Clicked!')}>
+  Primary Button
+</Button>
+```
+### Secondary Button
+A secondary button is used for less important actions.
+```jsx
+<Button appearance="secondary" onClick={() => alert('Secondary Button Clicked!')}>
+  Secondary Button
+</Button>
+```
+### Tertiary Button
+A tertiary button is used for the least important actions, often as a simple text link alternative.
+```jsx
+<Button appearance="tertiary" onClick={() => alert('Tertiary Button Clicked!')}>
+  Tertiary Button
+</Button>
+```
+### Button as a Link
+The `Button` component can also be used as a link by providing the `href` prop.
+```jsx
+<Button href="/dashboard" appearance="primary">
+  Go to Dashboard
+</Button>

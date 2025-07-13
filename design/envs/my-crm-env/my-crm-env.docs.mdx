@@ -1,0 +1,68 @@
+---
+description: A React development environment for CRM applications.
+labels: ['env', 'react', 'dev', 'vite', 'jest', 'webpack', 'crm']
+---
+
+A reusable development environment for React, tailored for CRM applications.
+Use this environment to create new React components and apps within the My CRM ecosystem.
+
+Features:
+- ▶️ TypeScript
+- 🧪 Vitest
+- 🧑‍💻 Generator templates include React UI component, React hook and apps (including Vite + SSR).
+- 🚀 React Workspace starter for CRM projects.
+- 🦋 ESLint
+- ⚒️ A React optimized build pipeline.
+- 👓 React Preview, pre-configured with MyCrmTheme.
+
+## Use in existing workspaces
+
+Add the development env to your generator configuration on `workspace.jsonc`.
+
+```json
+{
+  "teambit.generator/generator": {
+    "envs": [
+      "my-org/my-scope/my-crm-env"
+    ]
+  }
+}
+```
+You can see the generator templates in your workspace using `bit templates`.
+## Use on an existing component
+Use this dev environment on your existing components, by running the following command:
+```
+bit env set my-component my-org/my-scope/my-crm-env
+```
+## Create a React workspace for CRM
+You can create a new React workspace made from this env using the following command:
+```
+bit new react my-crm-workspace --aspect my-org/my-scope/my-crm-env
+```
+## Compose your own env
+You can base on this env, and customize it to your needs. To create your env run this command:
+```
+bit create react-env my-new-crm-env --scope my-org.my-scope
+```
+Make sure your new environment class extends this env class (`MyCrmEnv`) and overrides the needed class methods.
+## Examples
+### Dashboard Panel
+Displaying key CRM metrics in a styled panel.
+```jsx
+<Panel title="Key Metrics">
+  <div>
+    <p>New Leads: 150</p>
+    <p>Deals Closed: 32</p>
+    <p>Customer Satisfaction: 4.5/5</p>
+  </div>
+</Panel>
+```
+### Customer List
+Rendering a list of customers with relevant information.
+```jsx
+<CustomerList customers={customersData} />
+```
+### Sales Funnel Visualization
+Visualizing the sales process using a funnel chart.
+```jsx
+<SalesFunnel stages={salesStagesData} />

@@ -1,0 +1,29 @@
+---
+description: A semantic and visually consistent heading component that enhances content structure and readability.
+labels: ['heading', 'typography']
+---
+
+## Basic Headings
+
+The Heading component supports different heading levels (h1-h6) with corresponding styles.
+
+```jsx
+<Heading level={1}>Main Title (H1)</Heading>
+<Heading level={2}>Section Title (H2)</Heading>
+<Heading level={3}>Subsection Title (H3)</Heading>
+<Heading level={4}>Minor Heading (H4)</Heading>
+<Heading level={5}>Small Heading (H5)</Heading>
+<Heading level={6}>Tiny Heading (H6)</Heading>
+```
+## Headings with Visual Levels
+You can adjust the visual appearance of a heading independently of its semantic level using the `visualLevel` prop.
+```jsx
+<Heading level={1} visualLevel={3}>Semantic H1, Visual H3</Heading>
+<Heading level={2} visualLevel={5}>Semantic H2, Visual H5</Heading>
+<Heading level={4} visualLevel={1}>Semantic H4, Visual H1</Heading>
+```
+## Headings with Variants
+The `variant` prop allows you to apply different styles to headings, such as `display` for marketing content and `body` for content areas.
+```jsx
+<Heading level={1} variant="display">Display H1: Welcome to Our CRM</Heading>
+<Heading level={4} variant="body">Body H4: User Profile Details</Heading>

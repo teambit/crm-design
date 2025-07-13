@@ -1,0 +1,43 @@
+---
+description: A versatile Link component for internal and external navigation, with React Router integration.
+labels: ['link', 'navigation', 'router']
+---
+
+The `Link` component facilitates navigation within your application using React Router, and also supports linking to external websites. It handles both internal and external links, applying appropriate attributes and behaviors.
+
+## Internal Links
+
+Internal links use React Router for smooth, client-side navigation within your application.
+
+```tsx
+<MemoryRouter initialEntries={['/']}>
+  <Link href="/profile">View User Profile</Link>
+</MemoryRouter>
+```
+This example demonstrates a basic internal link. Clicking this link will navigate the user to the `/profile` route within your application, without a full page reload.
+## External Links
+External links point to resources outside of your application. These links automatically open in a new tab for a better user experience.
+```tsx
+<MemoryRouter>
+  <Link href="https://www.example.com" external>
+    Visit Example.com (New Tab)
+  </Link>
+</MemoryRouter>
+```
+Here, the `external` prop signals that the link is external. The component automatically adds `target="_blank"` and `rel="noopener noreferrer"` attributes for security and usability.
+## Custom Styling
+You can apply custom styles to the Link component using CSS classes.
+```tsx
+<MemoryRouter>
+  <style>{`
+    .special-link {
+      font-size: var(--typography-sizes-body-large);
+      color: var(--colors-actions-create);
+    }
+  `}</style>
+  <Link href="/special-offer" className="special-link">
+    Check out our Special Offer!
+  </Link>
+</MemoryRouter>
+```
+This example shows how to use a custom CSS class to style the link, changing its font size and color. This allows for flexible integration with your application's design system.

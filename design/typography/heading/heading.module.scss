@@ -1,0 +1,81 @@
+.heading {
+  margin: 0;
+  color: var(--colors-text-primary);
+  font-family: var(--typography-font-family);
+}
+
+.h1 {
+  font-size: var(--typography-sizes-heading-h1);
+  font-weight: var(--typography-font-weight-bold);
+  line-height: var(--typography-line-height-heading);
+  margin-bottom: var(--spacing-default);
+}
+
+.h2 {
+  font-size: var(--typography-sizes-heading-h2);
+  font-weight: var(--typography-font-weight-bold);
+  line-height: var(--typography-line-height-heading);
+  margin-bottom: var(--spacing-small);
+}
+
+.h3 {
+  font-size: var(--typography-sizes-heading-h3);
+  font-weight: var(--typography-font-weight-semi-bold);
+  line-height: var(--typography-line-height-heading);
+  margin-bottom: var(--spacing-small);
+}
+
+.h4 {
+  font-size: var(--typography-sizes-heading-h4);
+  font-weight: var(--typography-font-weight-semi-bold);
+  line-height: var(--typography-line-height-heading);
+  margin-bottom: var(--spacing-xs);
+}
+
+.h5 {
+  font-size: var(--typography-sizes-heading-h5);
+  font-weight: var(--typography-font-weight-medium);
+  line-height: var(--typography-line-height-heading);
+  margin-bottom: var(--spacing-xs);
+}
+
+.h6 {
+  font-size: var(--typography-sizes-heading-h6);
+  font-weight: var(--typography-font-weight-medium);
+  line-height: var(--typography-line-height-heading);
+  margin-bottom: var(--spacing-xs);
+}
+
+.display {
+  &.h1 {
+    font-size: var(--typography-sizes-display-large);
+    letter-spacing: var(--typography-letter-spacing-tight);
+  }
+
+  &.h2 {
+    font-size: var(--typography-sizes-display-medium);
+    letter-spacing: var(--typography-letter-spacing-tight);
+  }
+
+  &.h3 {
+    font-size: var(--typography-sizes-display-small);
+    letter-spacing: var(--typography-letter-spacing-tight);
+  }
+}
+
+.body {
+  &.h4 {
+    font-size: var(--typography-sizes-body-large);
+    font-weight: var(--typography-font-weight-medium);
+  }
+
+  &.h5 {
+    font-size: var(--typography-sizes-body-medium);
+    font-weight: var(--typography-font-weight-medium);
+  }
+
+  &.h6 {
+    font-size: var(--typography-sizes-body-default);
+    font-weight: var(--typography-font-weight-medium);
+  }
+}

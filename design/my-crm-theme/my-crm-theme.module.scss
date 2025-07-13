@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import './breakpoints.scss';
+
+.crmTheme {
+  // Apply default font family to all theme children
+  font-family: var(--typography-font-family);
+
+  // Use the theme background color for all components
+  background-color: var(--colors-surface-background);
+  
+  // Set default text color
+  color: var(--colors-text-primary);
+  
+  // Apply box-sizing to prevent layout issues
+  box-sizing: border-box;
+  
+  // Ensure all children inherit box-sizing 
+  * {
+    box-sizing: border-box;
+  }
+  
+  // Add smooth transitions for theme changes
+  transition: var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-easeInOut);
+  transition-property: background-color, color;
+}
+
+:global {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}

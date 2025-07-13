@@ -1,0 +1,70 @@
+---
+description: A flexible layout component for arranging elements in rows and columns.
+labels: ['layout', 'flexbox']
+---
+
+A flexible layout component for arranging elements in rows and columns.
+Provides a simple API to control the flexbox properties.
+
+## Component Usage
+
+Use the component to create flexible layouts:
+
+```jsx
+<Flex>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</Flex>
+```
+### Basic Row Layout
+Arrange items in a row with optional gaps.
+```jsx
+<Flex gap="var(--spacing-small)">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</Flex>
+```
+### Basic Column Layout
+Arrange items in a column with optional gaps.
+```jsx
+<Flex direction="column" gap="var(--spacing-small)">
+  <div>Item A</div>
+  <div>Item B</div>
+  <div>Item C</div>
+</Flex>
+```
+### Justify Content and Align Items
+Control the alignment and spacing of items within the flex container.
+```jsx
+<Flex
+  direction="row"
+  justifyContent="space-around"
+  alignItems="center"
+  style={{ height: '150px' }}
+  gap="var(--spacing-small)"
+>
+  <div>Tall Item</div>
+  <div>Short Item</div>
+  <div>Medium Item</div>
+</Flex>
+```
+### Wrap and Gap Example
+Demonstrates how to wrap flex items onto multiple lines and control the gaps between them.
+```jsx
+<Flex
+  wrap="wrap"
+  gap="var(--spacing-medium)"
+  rowGap="var(--spacing-default)"
+  columnGap="var(--spacing-xs)"
+  style={{ width: '350px' }}
+  alignItems="flex-start"
+>
+  <div>Child 1</div>
+  <div>Child 2 (Wider)</div>
+  <div>Child 3</div>
+  <div>Child 4</div>
+  <div>Child 5</div>
+  <div>Child 6</div>
+</Flex>

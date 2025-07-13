@@ -1,0 +1,36 @@
+---
+description: A subtle spinner component for indicating loading states.
+labels: ['spinner', 'loading', 'indicator']
+---
+
+## Basic Usage
+
+The `Spinner` component provides a visual cue to users that a process is ongoing.
+
+```jsx
+<Spinner />
+```
+## Sizes
+Different sizes are available to suit various contexts within your application.
+```jsx
+<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-medium)' }}>
+  <Spinner size="small" />
+  <Spinner size="medium" />
+  <Spinner size="large" />
+</div>
+```
+## Variants
+The `Spinner` component supports different color variants.
+```jsx
+<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-medium)' }}>
+  <Spinner variant="primary" />
+  <Spinner variant="secondary" />
+  <div style={{ backgroundColor: 'var(--colors-text-primary)', padding: 'var(--spacing-small)', borderRadius: 'var(--borders-radius-small)' }}>
+    <Spinner variant="light" />
+  </div>
+</div>
+```
+## With Text
+You can also display text alongside the spinner to provide more context.
+```jsx
+<Spinner text="Loading data..." />

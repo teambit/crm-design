@@ -1,0 +1,37 @@
+---
+description: A versatile and accessible paragraph component that prioritizes readability and consistent typography.
+labels: ['paragraph', 'typography', 'text']
+---
+
+## Component Usage
+
+Use the `Paragraph` component to display blocks of text with consistent styling and optimal readability.
+
+```jsx
+<Paragraph>
+  This is a basic paragraph. It uses default styling for font size, line height, and color to ensure readability.
+</Paragraph>
+```
+### Custom Element
+The `element` prop allows you to render the paragraph as a different HTML element, such as a `div` or `span`.
+```jsx
+<Paragraph element="div">
+  This paragraph is rendered as a div. This is useful for layout purposes or when you need to apply specific styles to a block-level element.
+</Paragraph>
+```
+### Custom Styling
+You can apply custom styles to the paragraph using the `className` and `style` props.
+```jsx
+<Paragraph className="custom-class" style={{ color: 'blue', fontWeight: 'bold' }}>
+  This paragraph has custom styling applied. You can use CSS classes or inline styles to modify the appearance of the text.
+</Paragraph>
+```
+### Multiple Paragraphs
+Use multiple `Paragraph` components to display a series of paragraphs with consistent spacing.
+```jsx
+<Paragraph>
+  This is the first paragraph. It includes default styling for font size, line height and color.
+</Paragraph>
+<Paragraph>
+  This is the second paragraph. Note the consistent spacing between paragraphs.
+</Paragraph>

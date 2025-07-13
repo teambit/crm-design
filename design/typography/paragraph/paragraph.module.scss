@@ -1,0 +1,13 @@
+.paragraph {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-default);
+  line-height: var(--typography-line-height-base);
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-default);
+  max-width: 70ch;
+  box-sizing: border-box;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

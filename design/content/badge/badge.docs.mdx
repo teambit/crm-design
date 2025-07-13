@@ -1,0 +1,50 @@
+---
+description: A versatile badge component for displaying statuses, labels, or categories.
+labels: ['badge', 'label', 'status']
+---
+
+## Usage
+
+The `Badge` component is used to highlight information, indicate status, or categorize items. It supports various styles, sizes, and colors, and can include an icon.
+
+## Examples
+
+### Basic Badges
+
+This example demonstrates badges with different colors and variants.
+
+```jsx
+<div style={{ display: 'flex', gap: 'var(--spacing-small)', alignItems: 'center' }}>
+  <Badge label="Primary" color="primary" variant="filled" />
+  <Badge label="Secondary" color="secondary" variant="outlined" />
+  <Badge label="Success" color="success" variant="subtle" />
+</div>
+```
+### Badges with Icons
+This example shows badges with icons, useful for adding visual cues.
+```jsx
+const PlaceholderIcon = ({ size = 14, color = "currentColor" }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill={color} 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ display: 'flex', alignItems: 'center' }}
+  >
+    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+  </svg>
+);
+<div>
+  <Badge label="Task Complete" color="success" variant="filled" icon={<PlaceholderIcon />} />
+  <Badge label="High Priority" color="error" variant="filled" size="small" icon={<PlaceholderIcon />} />
+</div>
+```
+### Size Variations
+This example showcases different sizes of the badge component.
+```jsx
+<div>
+  <Badge label="Small Badge" color="primary" size="small" />
+  <Badge label="Medium Badge" color="secondary" size="medium" />
+  <Badge label="Large Badge" color="success" size="large" />
+</div>

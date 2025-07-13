@@ -1,0 +1,118 @@
+.pageLayout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--colors-surface-background);
+  color: var(--colors-text-primary);
+}
+
+.mainContent {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  max-width: var(--layout-max-page-width);
+  margin: 0 auto;
+  padding: var(--spacing-large);
+  box-sizing: border-box;
+}
+
+.contentArea {
+  flex: 1;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: var(--spacing-large);
+}
+
+.pageTitle {
+  font-size: var(--typography-sizes-heading-h1);
+  font-weight: var(--typography-font-weight-bold);
+  margin: 0 0 var(--spacing-small) 0;
+  color: var(--colors-text-emphasis);
+}
+
+.pageDescription {
+  font-size: var(--typography-sizes-body-medium);
+  color: var(--colors-text-secondary);
+  margin: 0 0 var(--spacing-medium) 0;
+}
+
+.pageContent {
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-medium);
+  padding: var(--spacing-large);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabsContainer {
+  margin-bottom: var(--spacing-large);
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-medium) 0;
+  font-size: var(--typography-sizes-body-small);
+  color: var(--colors-text-secondary);
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+
+  &:after {
+    content: "/";
+    margin: 0 var(--spacing-xs);
+  }
+
+  &:last-child {
+    color: var(--colors-text-primary);
+    font-weight: var(--typography-font-weight-medium);
+
+    &:after {
+      content: "";
+      margin: 0;
+    }
+  }
+}
+
+.breadcrumbLink {
+  color: var(--colors-text-secondary);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--colors-primary-hover);
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .mainContent {
+    padding: var(--spacing-medium);
+  }
+
+  .pageContent {
+    padding: var(--spacing-medium);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mainContent {
+    padding: var(--spacing-small);
+  }
+
+  .pageContent {
+    padding: var(--spacing-small);
+    border-radius: var(--borders-radius-small);
+  }
+
+  .pageTitle {
+    font-size: var(--typography-sizes-heading-h2);
+  }
+}

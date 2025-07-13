@@ -1,0 +1,99 @@
+---
+description: A theme for CRM applications, providing design tokens for consistent styling across light and dark modes.
+labels: ['react', 'theme', 'crm', 'design tokens', 'light mode', 'dark mode']
+---
+
+The `MyCrmTheme` component provides a consistent and professional design for CRM applications. It includes design tokens for typography, colors, spacing, and sizes, and supports both light and dark modes.
+
+## Get Started
+
+To use the `MyCrmTheme` in your application:
+
+```bash
+bit install @my-org/my-crm-theme
+```
+Alternatively, use PNPM or NPM:
+```bash
+npm install @my-org/my-crm-theme
+```
+## Usage
+Wrap your application or specific components with the `MyCrmTheme` component to apply the theme.
+```jsx
+<MyCrmTheme>
+  <Dashboard />
+</MyCrmTheme>
+```
+### Basic Theme Application
+This example demonstrates how to wrap a simple component with `MyCrmTheme` to apply the default styling.
+```jsx
+<MyCrmTheme>
+  <div>
+    <h1>Welcome to your CRM</h1>
+    <p>Manage your contacts and sales effortlessly.</p>
+  </div>
+</MyCrmTheme>
+```
+### Theme Toggle Example
+Demonstrates toggling between light and dark themes using the `useThemeController` hook.
+```jsx
+// This example is illustrative. For a functional version, ensure imports are correctly handled in your project.
+// function ThemeToggleButton() {
+//   const { themeMode, toggleTheme } = useThemeController(); // This would require the hook
+//   const theme = useTheme(); // This would require the hook
+//   const buttonStyle = {
+//     padding: `${theme.spacing.small} ${theme.spacing.default}`,
+//     backgroundColor: theme.colors.primary.default,
+//     color: theme.colors.text.inverse,
+//     border: 'none',
+//     borderRadius: theme.borders.radius.small,
+//     cursor: 'pointer',
+//   };
+//   return (
+//     <button style={buttonStyle} onClick={toggleTheme}>
+//       Toggle Theme ({themeMode === 'light' ? 'Dark' : 'Light'} Mode)
+//     </button>
+//   );
+// }
+
+// <MyCrmTheme>
+//   <ThemeToggleButton />
+//   <div>
+//     <h1>CRM Dashboard</h1>
+//     <p>Some content here.</p>
+//   </div>
+// </MyCrmTheme>
+
+// Simplified example due to import removal for docs
+<MyCrmTheme initialTheme="light">
+  <div>
+    <button 
+      onClick={() => alert('Theme toggling logic would be here, using useThemeController hook.')}
+      style={{ padding: '8px 16px', margin: '8px', cursor: 'pointer' }}
+    >
+      Toggle Theme (Conceptual)
+    </button>
+    <h1>CRM Dashboard</h1>
+    <p>Some content here, styled by MyCrmTheme.</p>
+  </div>
+</MyCrmTheme>
+```
+### Theme Overrides Example
+This example showcases how to override specific theme tokens to customize the appearance.
+```jsx
+<MyCrmTheme
+  overrides={{
+    colors: {
+      primary: {
+        default: '#ff6f00', // Custom primary color
+      },
+    },
+    typography: {
+      fontFamily: "'Arial', sans-serif",
+    },
+  }}
+>
+  <div>
+    <h1>Customized CRM</h1>
+    <p>Theme overrides applied.</p>
+  </div>
+</MyCrmTheme>

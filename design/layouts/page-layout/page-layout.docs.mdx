@@ -1,0 +1,84 @@
+---
+description: A responsive page layout component with content area and inner navigation.
+labels: ['page layout', 'layout', 'responsive', 'navigation']
+---
+
+The `PageLayout` component provides a consistent structure for pages within a CRM platform, including a header, content area, and optional inner navigation using tabs or breadcrumbs. It leverages `react-helmet` for injecting SEO meta elements.
+
+## Basic Usage
+
+This example demonstrates the basic usage of the `PageLayout` component with a simple title and content.
+
+```jsx
+<MemoryRouter>
+  <MyCrmTheme>
+    <PageLayout page={{ title: 'Dashboard' }}>
+      <div>
+        <h2>Welcome to the Dashboard</h2>
+        <p>This is the main dashboard page.</p>
+      </div>
+    </PageLayout>
+  </MyCrmTheme>
+</MemoryRouter>
+```
+## Customer Details Page with SEO and Breadcrumbs
+This example showcases a more complex scenario, including SEO meta tags (description, keywords, canonical URL) and breadcrumbs for improved navigation.
+```jsx
+<MemoryRouter>
+  <MyCrmTheme>
+    <PageLayout
+      page={{
+        title: 'Customer Profile - John Doe',
+        description: 'View and manage customer details for John Doe.',
+        keywords: 'crm, customer, profile',
+        canonicalUrl: 'https://example.com/customers/john-doe',
+        breadcrumbs: [
+          { label: 'CRM Home', path: '/crm' },
+          { label: 'Customers', path: '/crm/customers' },
+          { label: 'John Doe' },
+        ],
+      }}
+    >
+      <div>
+        <h3>Contact Information</h3>
+        <p>Email: john.doe@example.com</p>
+        <p>Phone: (555) 555-5555</p>
+      </div>
+    </PageLayout>
+  </MyCrmTheme>
+</MemoryRouter>
+```
+## Settings Page with Tabs
+This example demonstrates how to use the `PageLayout` component with inner navigation using tabs. The `sections` prop is used to define the tabs and their corresponding content.
+```jsx
+<MemoryRouter>
+  <MyCrmTheme>
+    <PageLayout
+      page={{
+        title: 'Application Settings',
+        sections: [
+          {
+            id: 'general',
+            label: 'General',
+            content: (
+              <div>
+                <h4>General Settings</h4>
+                <p>Configure application name and default language.</p>
+              </div>
+            ),
+          },
+          {
+            id: 'user-management',
+            label: 'User Management',
+            content: (
+              <div>
+                <h4>User Management</h4>
+                <p>Add new users and assign roles.</p>
+              </div>
+            ),
+          },
+        ],
+      }}
+    />
+  </MyCrmTheme>
+</MemoryRouter>

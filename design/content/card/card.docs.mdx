@@ -1,0 +1,86 @@
+---
+description: A versatile card component for displaying various content types with optional title, header, footer, and image.
+labels: ['card', 'container', 'crm']
+---
+
+## Basic Card
+
+A simple card with a title and content.
+
+```jsx
+<Card title="Customer Profile">
+  <p>
+    <strong>Name:</strong> Jane Doe<br />
+    <strong>Email:</strong> jane.doe@example.com<br />
+    <strong>Company:</strong> Acme Corp<br />
+    <strong>Status:</strong> Active Lead
+  </p>
+</Card>
+```
+## Card with Image
+A card with an image, title, content, and a button.
+```jsx
+<Card
+  title="New Product Launch"
+  image="https://images.unsplash.com/photo-1573164574230-db1d5e960238?ixid=M3w3MDc2NDF8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMkMlMjBjcm0lMkMlMjBkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwxfDB8fGJsdWV8MTc0NzMxNTU3NXww&ixlib=rb-4.1.0"
+  imageAlt="Modern office setup with a person using a laptop"
+>
+  <p>
+    Our latest CRM integration tool is now live. Enhance your workflow and boost productivity.
+  </p>
+  <button style={{
+      padding: 'var(--spacing-xs) var(--spacing-small)',
+      margin: '0 var(--spacing-xs)',
+      backgroundColor: 'var(--colors-primary-default)',
+      color: 'var(--colors-text-inverse)',
+      border: 'none',
+      borderRadius: 'var(--borders-radius-small)',
+      cursor: 'var(--interactions-cursor-pointer)',
+      fontSize: 'var(--typography-sizes-label-default)',
+      fontWeight: 'var(--typography-font-weight-medium)',
+    }}>Learn More</button>
+</Card>
+```
+## Card with Header and Footer
+A card with a custom header and footer.
+```jsx
+<Card
+  header={
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <h4>Deal Progress</h4>
+      <span>75% Complete</span>
+    </div>
+  }
+  footer={
+    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <button style={{
+          padding: 'var(--spacing-xs) var(--spacing-small)',
+          margin: '0 var(--spacing-xs)',
+          backgroundColor: 'var(--colors-primary-default)',
+          color: 'var(--colors-text-inverse)',
+          border: 'none',
+          borderRadius: 'var(--borders-radius-small)',
+          cursor: 'var(--interactions-cursor-pointer)',
+          fontSize: 'var(--typography-sizes-label-default)',
+          fontWeight: 'var(--typography-font-weight-medium)',
+        }}>Edit</button>
+      <button style={{
+          padding: 'var(--spacing-xs) var(--spacing-small)',
+          margin: '0 var(--spacing-xs)',
+          backgroundColor: 'var(--colors-primary-default)',
+          color: 'var(--colors-text-inverse)',
+          border: 'none',
+          borderRadius: 'var(--borders-radius-small)',
+          cursor: 'var(--interactions-cursor-pointer)',
+          fontSize: 'var(--typography-sizes-label-default)',
+          fontWeight: 'var(--typography-font-weight-medium)',
+        }}>Archive</button>
+    </div>
+  }
+>
+  <p>
+    <strong>Client:</strong> Tech Solutions Inc.<br />
+    <strong>Value:</strong> $50,000<br />
+    <strong>Next Step:</strong> Final Proposal Submission
+  </p>
+</Card>

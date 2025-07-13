@@ -1,0 +1,26 @@
+.link {
+  color: var(--colors-primary-default);
+  text-decoration: none;
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-default);
+  font-weight: var(--typography-font-weight-medium);
+  cursor: var(--interactions-cursor-pointer);
+  outline: none;
+  transition: 
+    color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-easeOut),
+    text-decoration var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-easeOut);
+  
+  &:hover {
+    color: var(--colors-primary-hover);
+    text-decoration: underline;
+  }
+  
+  &:active {
+    color: var(--colors-primary-active);
+  }
+  
+  &:focus {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--borders-focus-color);
+    outline-offset: var(--borders-focus-offset);
+  }
+}

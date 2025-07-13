@@ -1,0 +1,66 @@
+---
+description: A flexible tab navigation component for organizing content into distinct sections.
+labels: ['tabs', 'navigation']
+---
+
+## Component Usage
+
+The `Tabs` component allows users to navigate between different sections of content within a single view. It supports various styles, orientations, and functionalities such as linking and lazy loading.
+
+### Basic Tabs
+
+This example demonstrates a simple tab structure with three tabs: Profile, Dashboard, and Settings.
+
+```jsx
+<MemoryRouter>
+  <MyCrmTheme>
+    <div style={{ padding: 'var(--spacing-large)' }}>
+      <Tabs
+        items={[
+          { id: 'profile', label: 'Profile', content: <div>User Profile Information.</div> },
+          { id: 'dashboard', label: 'Dashboard', content: <div>Main Dashboard.</div> },
+          { id: 'settings', label: 'Settings', content: <div>Application Settings.</div> },
+        ]}
+      />
+    </div>
+  </MyCrmTheme>
+</MemoryRouter>
+```
+### Tabs with Icons and Badges
+Enhance tabs with icons and badges to provide additional context or indicate status.
+```jsx
+<MemoryRouter>
+  <MyCrmTheme>
+    <div style={{ padding: 'var(--spacing-large)' }}>
+      <Tabs
+        items={[
+          { id: 'inbox', label: 'Inbox', icon: <span role="img" aria-label="inbox" style={{ fontSize: 'var(--typography-sizes-body-large)' }}>📨</span>, content: <div>Your messages and notifications.</div>, badge: '3' },
+          { id: 'calendar', label: 'Calendar', icon: <span role="img" aria-label="calendar" style={{ fontSize: 'var(--typography-sizes-body-large)' }}>📅</span>, content: <div>Your schedule and upcoming events.</div> },
+          { id: 'tasks', label: 'Tasks', icon: <span role="img" aria-label="tasks" style={{ fontSize: 'var(--typography-sizes-body-large)' }}>✔️</span>, content: <div>Manage your to-do list.</div>, badge: <span style={{ backgroundColor: 'var(--colors-status-negative-default)', color: 'var(--colors-text-inverse)', padding: '2px 6px', borderRadius: 'var(--borders-radius-small)' }}>Urgent</span> },
+        ]}
+        variant="filled"
+      />
+    </div>
+  </MyCrmTheme>
+</MemoryRouter>
+```
+### Linked Tabs
+Use tabs as navigation links within your application. The `link` property specifies the URL, and `navigateOnClick` determines whether the tab click triggers navigation.
+```jsx
+<MemoryRouter initialEntries={['/initial']}>
+  <MyCrmTheme>
+    <div style={{ padding: 'var(--spacing-large)' }}>
+      <p style={{ marginBottom: 'var(--spacing-small)', color: 'var(--colors-text-secondary)'}}>
+        <em>Select tabs to see behavior. 'Home' tab will attempt navigation if Link component is active.</em>
+      </p>
+      <Tabs
+        items={[
+          { id: 'home-link', label: 'Home (Navigates)', link: '/home', navigateOnClick: true, icon: <span role="img" aria-label="home" style={{ fontSize: 'var(--typography-sizes-body-large)' }}>🏠</span>, content: <div>Content for Home. This tab uses Link to navigate.</div> },
+          { id: 'docs-no-nav', label: 'Docs (No Navigate)', link: '/documentation', navigateOnClick: false, icon: <span role="img" aria-label="documentation" style={{ fontSize: 'var(--typography-sizes-body-large)' }}>📚</span>, content: <div>Content for Docs. This tab activates but does not navigate via Link.</div> },
+          { id: 'support', label: 'Support (No Link)', icon: <span role="img" aria-label="support" style={{ fontSize: 'var(--typography-sizes-body-large)' }}>헬</span>, content: <div>Support Page Content. Standard tab behavior.</div> },
+        ]}
+        variant="outlined"
+      />
+    </div>
+  </MyCrmTheme>
+</MemoryRouter>
